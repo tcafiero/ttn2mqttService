@@ -1,0 +1,29 @@
+{
+  "name": "mqtt2postgress-server",
+  "version": "1.0.0",
+  "description": "Server receiving Safety data subscribing MQTT and then putting data in Prostgress",
+  "main": "mqtt2postgress-server.js",
+  "dependencies": {
+    "dms2dec": "^1.1.0",
+    "easy-pg": "^2.2.0",
+    "events": "^1.1.1",
+    "mqtt": "^2.18.3",
+    "pg": "^7.4.1",
+    "postgresql-easy": "^1.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcafiero/mqtt2postgress-server.git"
+  },
+  "keywords": [],
+  "author": "Toni Cafiero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcafiero/mqtt2postgress-server/issues"
+  },
+  "homepage": "https://github.com/tcafiero/mqtt2postgress-server#readme"
+}
