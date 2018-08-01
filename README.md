@@ -1,86 +1,53 @@
 ![](./images/IoThingsWareWideSmall.png)
-# mqtt2postgress-service
+# ttn2mqttservice
 
 
-This Service reads data coming from Bluetoth Low Energy Tokens and append them into a cloud base DB. This Service is made of nodejs code can run into a local machine or in Cloud (AWS).
+This Service reads the payload_raw data and route them into a mqtt broker. To do this job use the mqtt API.
+This Service Subscribe to a TTN Service for the payload coming from an Application/Device and route them Publishing to a mqtt broker.
 
-BLE Tokens Advetise themselves putting some sensor coming data into Advertising Packet.
-We can use some cheap easy to buy token as "JustFoundIt" that can be used to understand if they are in the range we can discover It or using the RSSI value to infer how far from a BLE controller is.
+## The Things Network Service
+This service connect to The Things Network Service using the MQTT API. To connect use this parameters:
 
-Otherwise we can make custom tokens let say using Adafruit Feather nRF52. In this case we can put in Advertising packet data coming from sensors (see project [BLEtoken](https://github.com/tcafiero/BLEtoken)).
+    protocol:  tcp://
+    host name: eu.thethings.network
+    port:      1883
+    username:  iotapplication001
+    password:  [the value of Access Key you copied before].
 
-To make Service receiving data from BLE Tokens we need a Gateway (see project [BLEtokenGateway](https://github.com/tcafiero/BLEtokenGateway)) that read data coming from Tokens and transmit them on networ using MQTT protocol.
 
 ## The MQTT Broker
 
-
 This Service connect to a MQTT broker hosted in Cloud MQTT (www.cloudmqtt.com) using instance IoT. The Service to use this broker must use this parameters:
 
-    url:	m23.cloudmqtt.com
-    port:	16947
-    user:	tester
-    password:	tester
+    url:	m24.cloudmqtt.com
+    port:	1883
+    user:	test
+    password:	test
 
-If you want to manage this instance from a web page use http://www.hivemq.com/demos/websocket-client/ using this access parameters:
-
-    url:	m23.cloudmqtt.com
-    port:	36947
-    SSL:	(checked)
-    user:	tester
-    password:	tester
-    then subscribe using # that means all tokens
-
-The Service to receive data from this broker have to subscribe for this token:
-
-    /token/
-
-The data coming from the broker has JSON format. The format is folowing:
-
-    {"gateway":"<gateway address>","token":{"address":"<token address>","name":"<token name>","rssi":<RSSI value>}}
-
-example:
-
-    {"gateway":"88a408a4ae30","token":{"address":"ec:90:be:5c:d3:bd","name":"IoThingsWare","rssi":-23}}
+# Installation
 
 
-## The DB server (Postgress in AWS Cloud)
-As stated before data coming from MQTT broker are appended into a remote database.
-The remote database we use is Postgress in Amazon AWS.
-These are the parameter to access this database:
+Stable: `npm install ttn2mqttservice`
 
-	Host name/address: mydb.c3awcpsaz3jg.eu-west-1.rds.amazonaws.com
-	Port: 5432
-	User: trial
-	Password: Trial001
-
-This database is documented into subfolder:
-
-	./PostgressSchema	
-
-## Installation
-
-
-Stable: `npm install mqtt2postgress-services`
-
-## mqtt2postgress-services.js a service on AWS starting automatically
+## ttn2mqttservice.js a service on AWS starting automatically
 
 	$ sudo npm install -g forever
 	$ sudo npm install -g forever-service
 	$ forever-service --help
-	$ sudo forever-service install mqtt2postgress-services -s \
-	/home/ubuntu/services/node_modules/mqtt2postgress-services\
-	/mqtt2postgress-services.js
+	$ sudo forever-service install ttn2mqtt2services -s \
+	/home/ubuntu/services/node_modules/ttn2mqttservice\
+	/ttn2mqttservice.js
 	forever-service version 0.5.11
 	
 	Platform - Ubuntu 16.04.2 LTS
-	gps2mqtt-server provisioned successfully
+	ttn2mqttservice provisioned successfully
 	
 	Commands to interact with service mqtt2postgress-services
-	Start   - "sudo service mqtt2postgress-services start"
-	Stop    - "sudo service mqtt2postgress-services stop"
-	Status  - "sudo service mqtt2postgress-services status"
-	Restart - "sudo service mqtt2postgress-services restart"
-	$ sudo service mqtt2postgress-services start
+	Start   - "sudo service ttn2mqttservice start"
+	Stop    - "sudo service ttn2mqttservice stop"
+	Status  - "sudo service ttn2mqttservice status"
+	Restart - "sudo service ttn2mqttservicerestart"
+	$ sudo service ttn2mqttservice start
 
 
 
