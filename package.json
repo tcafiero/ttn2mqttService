@@ -1,8 +1,8 @@
 {
-  "name": "mqtt2postgress-server",
+  "name": "ttn2mqttservice",
   "version": "1.0.0",
-  "description": "Server receiving Safety data subscribing MQTT and then putting data in Prostgress",
-  "main": "mqtt2postgress-server.js",
+  "description": "Gateway service Subscribing to an LoraWan TTN Server for an application/Device, reading the payload_raw  and Publishing it on a MQTT Broker.",
+  "main": "ttn2mqttservice.js",
   "dependencies": {
     "dms2dec": "^1.1.0",
     "easy-pg": "^2.2.0",
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tcafiero/mqtt2postgress-server.git"
+    "url": "git+https://github.com/tcafiero/ttn2mqttservice.git"
   },
   "keywords": [],
   "author": "Toni Cafiero",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tcafiero/mqtt2postgress-server/issues"
+    "url": "https://github.com/tcafiero/ttn2mqttservice/issues"
   },
-  "homepage": "https://github.com/tcafiero/mqtt2postgress-server#readme"
+  "homepage": "https://github.com/tcafiero/ttn2mqttservice#readme"
 }

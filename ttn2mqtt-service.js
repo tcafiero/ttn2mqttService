@@ -9,7 +9,8 @@ var MQTTclients = require ('./MQTTConnector.js');
       case 'iotwapplication001/devices/iotwdevice001/up':
           var payload_raw = Buffer.from(message.payload_raw, 'base64').toString('ascii');
           console.log(payload_raw);
-          MQTTclients.cloudmqtt_client.publish('/LoRaWanTest/', payload_raw)
+          var fromEmbedded = JSON.parse(payload_raw);
+          MQTTclients.cloudmqtt_client.publish(fromEmbedded.t, fromEmbedded.m)
           break;
       default:        
   }
