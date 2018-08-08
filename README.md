@@ -1,5 +1,5 @@
 ![](./images/IoThingsWareWideSmall.png)
-# ttn2mqttservice
+# ttn2mqttserviceCantiereSmart
 
 
 This Service reads the payload_raw data and route them into a mqtt broker. To do this job use the mqtt API.
@@ -27,27 +27,28 @@ This Service connect to a MQTT broker hosted in Cloud MQTT (www.cloudmqtt.com) u
 # Installation
 
 
-Stable: `npm install ttn2mqttservice`
+Stable: `npm install ttn2mqttserviceCantiereSmart`
 
 ## ttn2mqttservice.js a service on AWS starting automatically
 
 	$ sudo npm install -g forever
 	$ sudo npm install -g forever-service
 	$ forever-service --help
-	$ sudo forever-service install ttn2mqtt2services -s \
+	$ sudo forever-service install\
+	ttn2mqttservicesCantiereSmart -s \
 	/home/ubuntu/services/node_modules/ttn2mqttservice\
-	/ttn2mqttservice.js
+	/ttn2mqttserviceCantiereSmart.js
 	forever-service version 0.5.11
 	
 	Platform - Ubuntu 16.04.2 LTS
-	ttn2mqttservice provisioned successfully
+	ttn2mqttservicesCantiereSmart provisioned successfully
 	
-	Commands to interact with service mqtt2postgress-services
-	Start   - "sudo service ttn2mqttservice start"
-	Stop    - "sudo service ttn2mqttservice stop"
-	Status  - "sudo service ttn2mqttservice status"
-	Restart - "sudo service ttn2mqttservicerestart"
-	$ sudo service ttn2mqttservice start
+	Commands to interact with service ttn2mqttservicesCantiereSmart
+	Start   - "sudo service ttn2mqttservicesCantiereSmart start"
+	Stop    - "sudo service ttn2mqttservicesCantiereSmart stop"
+	Status  - "sudo service ttn2mqttservicesCantiereSmart status"
+	Restart - "sudo service ttn2mqttservicesCantiereSmart restart"
+	$ sudo service ttn2mqttservicesCantiereSmart start
 
 
 

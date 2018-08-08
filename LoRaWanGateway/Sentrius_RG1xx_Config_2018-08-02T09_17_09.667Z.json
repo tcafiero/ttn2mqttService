@@ -1,0 +1,26 @@
+﻿{
+    "lan": {
+        "ipv4": {
+            "method": "dhcp"
+        },
+        "ipv6": {
+            "method": "auto",
+            "dhcp": "SLAAC"
+        }
+    },
+    "lora": {
+        "data": {
+            "name": "Sentrius configuration 2018-08-02T09:17:07.064Z",
+            "country_code": "EU",
+            "url": "",
+            "icon": ""
+        },
+        "lora": {
+            "logging_level": "debug",
+            "gateway_mode": "ttn"
+        },
+        "forwarder": {
+            "id": "rg1xx2941bd"
+        }
+    }
+}
